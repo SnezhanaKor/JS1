@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson2</title>
+</head>
+
+<body>
+    <!--    1. Дан код: 
+        var a = 1, b = 1, c, d;<br>
+        c = ++a; alert(c); // 2 /* c = a + 1 = 2 */ к переменной а прибавляем единицу */<br>
+        d = b++; alert(d); // 1 /* d = b = 1, 1++ */ прибавляем единицу к переменной b, но выводим предыдущее значение,
+        постфиксная запись*/<br>
+        c = (2+ ++a); alert(c); // 5 /* c = 2 + (2 + 1) */ a = 2 после 1 вычисления, прибавляем единицу к переменной а,
+        (a = 3) + 2, выводим результат на экран 5.*/<br>
+        d = (2+ b++); alert(d); // 4 /* d = 2 + 2, 4++ */ b = 2 после 2 вычисления, 2+ (b=2) = 4, выводим результат на
+        экран, после вывода на экран прибавляем 1 единицу к переменной b, b = 3. */<br>
+        alert(a); // 3 /* после вычисления 3, a = 3 */<br>
+        alert(b); // 3 /* после вычисления 4, b = 3 */<br>
+        Почему код даёт именно такие результаты?-->
+
+    <!--2. Чему будет равен x в примере ниже?-->
+    <script>
+        var a = 2;
+        var x = 1 + (a *= 2);
+        alert(x); // 1 + (2 * 2) = 5
+    </script>
+    <!--3. Объявить две целочисленные переменные a и b и задать им произвольные начальные значения. Затем написать скрипт,
+    который работает по следующему принципу:
+    если a и b положительные, вывести их разность;
+    если а и b отрицательные, вывести их произведение;
+    если а и b разных знаков, вывести их сумму; ноль можно считать положительным числом.-->
+    <script>
+        var a = parseInt(+prompt("Введите значение переменной a:"));
+        var b = parseInt(+prompt("Введите значение переменной b:"));
+        if (a >= 0 && b >= 0) {
+            var c = a - b;
+        } else if (a < 0 && b < 0) {
+            c = a * b;
+        } else if (a >= 0 && b < 0 || a < 0 && b >= 0) {
+            c = a + b;
+        }
+        alert(c);
+    </script>
+    <!--4. Присвоить переменной а значение в промежутке [0..15]. С помощью оператора switch организовать вывод чисел от a до 15.-->
+    <script>
+        // var a = +prompt("Введите значение переменной a в промежутке от 0 до 15:");//
+        var a = parseInt(Math.random() * 15);
+        switch (a) {
+            case 0:
+                alert(a++);
+            case 1:
+                alert(a++);
+            case 2:
+                alert(a++);
+            case 3:
+                alert(a++);
+            case 4:
+                alert(a++);
+            case 5:
+                alert(a++);
+            case 6:
+                alert(a++);
+            case 7:
+                alert(a++);
+            case 8:
+                alert(a++);
+            case 9:
+                alert(a++);
+            case 10:
+                alert(a++);
+            case 11:
+                alert(a++);
+            case 12:
+                alert(a++);
+            case 13:
+                alert(a++);
+            case 14:
+                alert(a++);
+            case 15:
+                alert(a++);
+            default:
+                alert("Стоп");
+        }
+    </script>
+    <!--5. Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор return.-->
+    <script>
+        var a = parseInt(+prompt("Введите значение переменной a:"));
+        var b = parseInt(+prompt("Введите значение переменной b:"));
+        alert("Сумма чисел равна: " + sum(a, b));
+        alert("Разность чисел равна: " + dif(a, b));
+        alert("Произведение чисел равно: " + pr(a, b));
+        alert("Деление чисел равно: " + div(a, b));
+
+        function sum(a, b) {
+            return a + b;
+        }
+
+        function dif(a, b) {
+            return a - b;
+        }
+
+        function pr(a, b) {
+            return a * b;
+        }
+
+        function div(a, b) {
+            return a / b;
+        }
+    </script>
+    <!--6. Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation), где arg1, arg2 – значения аргументов, operation – строка с названием операции. В зависимости от переданного значения операции выполнить одну из арифметических операций (использовать функции из пункта 3) и вернуть полученное значение (использовать switch).-->
+    <script>
+        var arg1 = +prompt("Введите значение первого аргумента:");
+        var arg2 = +prompt("Введите значение второго аргумента:");
+        var operation = prompt("Введите название операции прописными буквами:");
+
+        function mathOperation(arg1, arg2, operation) {
+            switch (operation) {
+                case "сложение":
+                    return arg1 + arg2;
+                    break;
+                case "вычитание":
+                    return arg1 - arg2;
+                    break;
+                case "умножение":
+                    return arg1 * arg2;
+                    break;
+                case "деление":
+                    return arg1 / arg2;
+                    break;
+            }
+        }
+        alert(mathOperation(arg1, arg2, operation));
+    </script>
+</body>
+
+</html>
