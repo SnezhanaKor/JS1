@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson4.1</title>
+</head>
+<body>
+    <p>1. Написать функцию, преобразующую число в объект. Передавая на вход число от 0 до 999, мы должны получить на выходе объект, в котором в соответствующих свойствах описаны единицы, десятки и сотни. Например, для числа 245 мы должны получить следующий объект: {‘единицы’: 5, ‘десятки’: 4, ‘сотни’: 2}. Если число превышает 999, необходимо выдать соответствующее сообщение с помощью console.log и вернуть пустой объект.</p>
+    <script>
+       function numObj(num){
+	if (isNaN(num)){
+	  console.log('Ошибка: параметр не является числом');
+	} else if(num>999 || num<0){
+		console.log('Ошибка: допустимый диапазон 0-999');
+	  var obj={};
+	  return obj;
+	} else {
+		var digits=['единицы','десятки','сотни'];
+	  var obj={};
+	  var i=0;
+	  for(var i=0; num!=0; i++){
+	  	obj[digits[i]]=num%10;
+	  	num=(num-num%10)/10;
+		}
+		}	
+		return obj;
+	}
+console.log(numObj( +prompt('Введите число от 0 до 999')));
+    </script>
+</body>
+</html>
