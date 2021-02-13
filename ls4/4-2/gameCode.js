@@ -2,10 +2,10 @@
 //По номеру вопроса нужно вывести текст вопроса и текст выбранного ответа
 
 var event, ok;
-/*//создан массив для записи результатов хода
-var answers = [];*/
+//создан массив для записи результатов хода
+var record = [];
 
-
+/*Полная версия
 do { //Выводим первый вопрос
     ok = false;
     event = +prompt(works.a00 + works.a1 + works.a2 + '-1 - Выход из игры');
@@ -103,12 +103,9 @@ switch (event) {
         break;
     default:
         alert('Ошибка');
-}
-//Показать результат хода
-var history = prompt ("Спасибо за игру. " + "Введите номер хода чтобы узнать его результат (0 вывести всю историю)");
-//
+}*/
 
-//------------------------------------------
+//функция проверянт введенное значение
 function isAnswer(q, event) {
     if (isNaN(event) || !isFinite(event)) {
         alert('Вы ввели недопустимый символ');
@@ -118,24 +115,67 @@ function isAnswer(q, event) {
         return false;
     }
     return true;
-
 }
-/*Домашнее заданиe
-//            Выводим результат хода
-if (history > 0){
-    history -= 1;
-    alert("Результат хода: " + answers[history]);
+//Домашнее заданиe
+//Короткая версия
+function answer(a1, a2, a3) {
+    var ok = false;
+    do {
+        event = +prompt(a1 + a2 + a3 + "-1 - Выход из игры");
+        if (event == -1) {
+            return -1;
+            break;
+        } else {
+            ok = isAnswer(works.a0, event);
+        }
+    } while (!ok);
+    switch (event) {
+        case 1:
+            record.push([a1, a2]);
+            break;
+        case 2:
+            record.push([a1, a3]);
+            break;
+        case -1:
+            record.push([a1, "Вышли из игры"]);
+            break;
     }
-//             Если выбран ноль выводим всю историю
-    else {
-      a = [];
-      b = 0;
-      for(i = 1;i < answers.length;i++){
-        b++;
-        c = "Ход " + i + " Результат: " + answers[b]+'\r\n';
-        a.push(c);
-      }
-      alert(a.join(''));
-  }
-  */
- 
+    return event;
+}
+//
+switch (answer(works.a00, works.a1, works.a2)) {
+    case 1: //первое действие - если в первом окне ввели 1 то открывает серию окон - окно 2.
+        switch (answer(works.b00, works.b1, works.b2)) {
+            case 1: //второе действие, если во 2 окне ввели 1 то переходим на 4
+            case 2: //если ввели 2, то так же переходим на 4
+                answer(works.d00, works.d1, works.d2);
+                break;
+            case -1: //второе действие
+                break;
+            default:
+                alert("Ошибка");
+        }
+        break;
+    case 2: //первое действие если в 1 окне ввели то переходим к 3 окну
+        switch (answer(works.c00, works.c1, works.c2)) {
+            case 1: //второе действие, если во 2 окне ввели 1 то переходим на 4
+            case 2: //если ввели 2, то так же переходим на 4
+                answer(works.d00, works.d1, works.d2);
+                break;
+            case -1: //второе действие
+                break;
+            default:
+                alert("Ошибка");
+        }
+        break;
+    case -1:
+        break;
+    default:
+        alert("Ошибка");
+}
+alert("Cпасибо за игру!");
+//Показать результат хода
+console.log(record);
+var step = +prompt("Введите номер хода, чтобы узнать его результат: ");
+var stepHistory = "В ходе № " + step + " " + record[step - 1][0] + "Ваш выбор " + record[step - 1][1];
+alert(stepHistory);
