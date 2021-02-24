@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChessBoard</title>
+</head>
+
+<body>
+    <div class="container" id="cont">
+        <script>
+            var container = document.querySelector(".container");
+            container.style.background = "#bcd9eb";
+            container.style.width = "660px";
+            container.style.height = "660px";
+            container.style.paddingLeft = "60px";
+            container.style.paddingBottom = "60px";
+            container.style.margin = "0 auto";
+            container.style.display = "flex";
+            container.style.flexWrap = "wrap";
+
+            function my_initiation() {
+                var cell = document.createElement("div");
+                cell.className = "cell";
+                cont.append(cell);
+                cell.style.width = "60px";
+                cell.style.height = "60px";
+                cell.style.margin = "0px";
+                cell.style.padding = "0px";
+                cell.style.fontSize = "40px";
+                cell.style.fontWeight = "bold";
+                cell.style.textAlign = "center";
+
+            }
+            window.onload = my_initiation;
+
+            for (var n = 0;
+                (n != 121); n++) {
+                window.onload = my_initiation();
+            };
+
+            var masCell = document.querySelectorAll(".cell");
+            for (var i = 0;
+                (i < masCell.length); i++) {
+                var c;
+                if (i % 2 == 0) {
+                    c = "#d2b48c";
+                } else {
+                    c = "#ffdead";
+                }
+                masCell[i].style.background = c;
+                if ((i > 33) && (i < 42)) {
+                    masCell[i].innerHTML = "&#9823";
+                };
+                if ((i > 88) && (i < 97)) {
+                    masCell[i].innerHTML = "&#9817";
+                };
+
+                masCell[23].innerHTML = "&#9820";
+                masCell[24].innerHTML = "&#9822";
+                masCell[25].innerHTML = "&#9821";
+                masCell[26].innerHTML = "&#9819";
+                masCell[27].innerHTML = "&#9818";
+                masCell[28].innerHTML = "&#9821";
+                masCell[29].innerHTML = "&#9822";
+                masCell[30].innerHTML = "&#9820";
+
+                masCell[100].innerHTML = "&#9814";
+                masCell[101].innerHTML = "&#9819";
+                masCell[102].innerHTML = "&#9815";
+                masCell[103].innerHTML = "&#9813";
+                masCell[104].innerHTML = "&#9812";
+                masCell[105].innerHTML = "&#9815";
+                masCell[106].innerHTML = "&#9816";
+                masCell[107].innerHTML = "&#9814";
+
+                for (var f = 89;
+                    (f < 108); f++) {
+                    masCell[f].style.color = "white";
+                }
+                for (var f = 0;
+                    (f < 22); f++) {
+                    masCell[f].style.background = "#bcd9eb";
+                }
+                for (var f = 110;
+                    (f < 121); f++) {
+                    masCell[f].style.background = "#bcd9eb";
+                }
+
+                masCell[22].style.background = "#bcd9eb";
+                masCell[33].style.background = "#bcd9eb";
+                masCell[44].style.background = "#bcd9eb";
+                masCell[55].style.background = "#bcd9eb";
+                masCell[66].style.background = "#bcd9eb";
+                masCell[77].style.background = "#bcd9eb";
+                masCell[88].style.background = "#bcd9eb";
+                masCell[99].style.background = "#bcd9eb";
+                masCell[31].style.background = "#bcd9eb";
+                masCell[32].style.background = "#bcd9eb";
+                masCell[42].style.background = "#bcd9eb";
+                masCell[43].style.background = "#bcd9eb";
+                masCell[53].style.background = "#bcd9eb";
+                masCell[54].style.background = "#bcd9eb";
+                masCell[64].style.background = "#bcd9eb";
+                masCell[65].style.background = "#bcd9eb";
+                masCell[75].style.background = "#bcd9eb";
+                masCell[76].style.background = "#bcd9eb";
+                masCell[86].style.background = "#bcd9eb";
+                masCell[87].style.background = "#bcd9eb";
+                masCell[97].style.background = "#bcd9eb";
+                masCell[98].style.background = "#bcd9eb";
+                masCell[108].style.background = "#bcd9eb";
+                masCell[109].style.background = "#bcd9eb";
+
+                masCell[12].innerText = "A";
+                masCell[13].innerText = "B";
+                masCell[14].innerText = "C";
+                masCell[15].innerText = "D";
+                masCell[16].innerText = "E";
+                masCell[17].innerText = "F";
+                masCell[18].innerText = "G";
+                masCell[19].innerText = "H";
+                masCell[111].innerText = "A";
+                masCell[112].innerText = "B";
+                masCell[113].innerText = "C";
+                masCell[114].innerText = "D";
+                masCell[115].innerText = "E";
+                masCell[116].innerText = "F";
+                masCell[117].innerText = "G";
+                masCell[118].innerText = "H";
+
+                masCell[97].style.color = "black";
+                masCell[99].style.color = "black";
+
+                masCell[22].innerText = "1";
+                masCell[33].innerText = "2";
+                masCell[44].innerText = "3";
+                masCell[55].innerText = "4";
+                masCell[66].innerText = "5";
+                masCell[77].innerText = "6";
+                masCell[88].innerText = "7";
+                masCell[99].innerText = "8";
+                masCell[31].innerText = "1";
+                masCell[42].innerText = "2";
+                masCell[53].innerText = "3";
+                masCell[64].innerText = "4";
+                masCell[75].innerText = "5";
+                masCell[86].innerText = "6";
+                masCell[97].innerText = "7";
+                masCell[108].innerText = "8";
+            }
+        </script>
+    </div>
+</body>
+
+</html>
